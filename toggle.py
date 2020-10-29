@@ -1,5 +1,7 @@
 import pulsectl
 
+a2dp_sink_name = "a2dp_sink_ldac"
+
 def toggle():
     pulse = pulsectl.Pulse("profile-switcher")
 
@@ -8,7 +10,7 @@ def toggle():
     card = next(filter(lambda x: "bluez" in x.name, pulse.card_list()))
     print(dir(card))
 
-    new_profile = "headset_head_unit" if profile == "a2dp_sink" else "a2dp_sink"
+    new_profile = "headset_head_unit" if "a2dp_sink" in profile else a2dp_sink_name
     pulse.card_profile_set(card, new_profile)
     pulse.close()
 
