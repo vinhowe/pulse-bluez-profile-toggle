@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import pulsectl
 
 a2dp_sink_name = "a2dp_sink_ldac"
